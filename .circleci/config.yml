@@ -16,31 +16,21 @@ jobs:
       # Checkout the code as the first step.
       - checkout
       - node/install-packages
+      - run: npm run build
+      - run: npm test
       - run:
-          name: Run tests
-          command: npm test
-  deploy:
-  executor:
-      name: node/default
-    steps:
-      - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: npm run build
+          name: Deploy final
+          command: deplment cmd
             ##- run: sudo apt-get install rsync && rsync --version
-            ##- run: rsync -a -e "ssh -o StrictHostKeyChecking=no" dist/ centos@X.XX.XXX.XXX:~/reactfrontend/
-            ##- run:
-            ##    name: Deploy Final
-            ##   command: |
-            ##      ssh centos@X.XX.XXX.XXX "sudo rsync -a /home/centos/reactfrontend/ /usr/share/nginx/html/"
+            ##or
+            ## - run ssh -oStictHostKeyChecking=no - $USER@$IP "./deploy.sh"
+            
 
 workflows:
   # Below is the definition of your workflow.
-  build-yest-and-deploy:
+  build-and-test:
     jobs:
       - build-and-test:
-      - deploy:
             filters:
               branches:
                 only: main # only deploy on the main branch
