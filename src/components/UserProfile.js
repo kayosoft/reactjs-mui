@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-export default function SigninScreen({ token }) {
+export default function UserProfile({ token }) {
   useEffect(() => {
     if (token) {
       fetchData(token);
@@ -8,7 +8,7 @@ export default function SigninScreen({ token }) {
   }, [token]);
 
   const fetchData = async (token) => {
-    const res = await axios.get("http://api.tunzi.com/v1/api/Signin", {
+    const res = await axios.get("http://api.tunzi.com/v1/api/User", {
       headers: {
         Authorization: "Bearer " + token,
       },
@@ -18,7 +18,7 @@ export default function SigninScreen({ token }) {
 
   return (
     <div>
-      <h1>SignIn</h1>
+      <h1>User Profile</h1>
     </div>
   );
 }
