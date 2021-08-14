@@ -18,9 +18,8 @@ jobs:
       - node/install-packages
       - run: npm run build
       - run: npm test
-      - run:
-          name: Deploy final
-          command: deplment cmd
+      ##- run:
+          #### command: deplment cmd
             ##- run: sudo apt-get install rsync && rsync --version
             ##or
             ## - run ssh -oStictHostKeyChecking=no - $USER@$IP "./deploy.sh"
@@ -30,7 +29,7 @@ workflows:
   # Below is the definition of your workflow.
   build-and-test:
     jobs:
-      - build-and-test:
-            filters:
-              branches:
-                only: main # only deploy on the main branch
+      - build-and-test
+            ##filters:
+             ## branches:
+               ## only: main # only deploy on the main branch
