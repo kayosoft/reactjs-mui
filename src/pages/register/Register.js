@@ -78,22 +78,53 @@ class Register extends React.Component {
       <div className="auth-page">
         <Container className="col-12">
           <Row className="d-flex align-items-center">
-            <Col xs={12} lg={6} className="left-column">
+            <Col xs={0} lg={6} className="left-column">
+              <div>
+                <img src={loginImage} alt="Error page" />
+              </div>
+            </Col>
+            <Col xs={12} lg={6} className="right-column">
               <Widget className="widget-auth widget-p-lg">
                 <div className="d-flex align-items-center justify-content-between py-3">
                   <p className="auth-header mb-0">Sign Up</p>
-                  <div className="logo-block">
-                    <SofiaLogo />
-                    <p className="mb-0">SOFIA</p>
-                  </div>
                 </div>
                 <div className="auth-info my-2">
-                  <p>
-                    This is a real app with Node.js backend - use{" "}
-                    <b>"admin@flatlogic.com / password"</b> to login!
-                  </p>
+                  <p>Fill hte form to register.</p>
                 </div>
                 <form onSubmit={this.doRegister}>
+                  <Row className="d-flex align-items-center">
+                    <Col className="left-column">
+                      <FormGroup className="my-3">
+                        <FormText>First Name</FormText>
+                        <Input
+                          id="fName"
+                          className="input-transparent pl-3"
+                          value={this.state.fname}
+                          onChange={this.changeFname}
+                          type="text"
+                          required
+                          name="fname"
+                          placeholder="Jalaludin"
+                        />
+                      </FormGroup>
+                    </Col>
+                    <Col className="right-column">
+                      <FormGroup className="my-3">
+                        <FormText>Last Name</FormText>
+                        <Input
+                          id="lName"
+                          className="input-transparent pl-3"
+                          value={this.state.lName}
+                          onChange={this.changeLname}
+                          type="text"
+                          required
+                          name="lName"
+                          placeholder="Kalumba"
+                        />
+                      </FormGroup>
+                    </Col>
+                  </Row>
+
                   <FormGroup className="my-3">
                     <FormText>Email</FormText>
                     <Input
@@ -104,13 +135,12 @@ class Register extends React.Component {
                       type="email"
                       required
                       name="email"
-                      placeholder="Henry Monk"
+                      placeholder="kalj@yourmail.com.com"
                     />
                   </FormGroup>
                   <FormGroup className="my-3">
                     <div className="d-flex justify-content-between">
                       <FormText>Password</FormText>
-                      <Link to="/error">Forgot password?</Link>
                     </div>
                     <Input
                       id="password"
@@ -139,28 +169,15 @@ class Register extends React.Component {
                       <a href="https://flatlogic.com/">
                         <GoogleIcon />
                       </a>
-                      <a href="https://flatlogic.com/">
-                        <TwitterIcon />
-                      </a>
+
                       <a href="https://flatlogic.com/">
                         <FacebookIcon />
                       </a>
-                      <a href="https://flatlogic.com/">
-                        <GithubIcon />
-                      </a>
-                      <a href="https://flatlogic.com/">
-                        <LinkedinIcon />
-                      </a>
                     </div>
                   </div>
-                  <Link to="/login">Enter the account</Link>
+                  <Link to="/login">Already have an account, Signin</Link>
                 </form>
               </Widget>
-            </Col>
-            <Col xs={0} lg={6} className="right-column">
-              <div>
-                <img src={loginImage} alt="Error page" />
-              </div>
             </Col>
           </Row>
         </Container>

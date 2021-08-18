@@ -14,13 +14,11 @@ import {
 import Widget from "../../components/Widget/Widget.js";
 import Footer from "../../components/Footer/Footer.js";
 import { loginUser } from "../../actions/auth.js";
-
 import loginImage from "../../assets/loginImage.svg";
 import GoogleIcon from "../../components/Icons/AuthIcons/GoogleIcon.js";
-import TwitterIcon from "../../components/Icons/AuthIcons/TwitterIcon.js";
 import FacebookIcon from "../../components/Icons/AuthIcons/FacebookIcon.js";
-import GithubIcon from "../../components/Icons/AuthIcons/GithubIcon.js";
-import LinkedinIcon from "../../components/Icons/AuthIcons/LinkedinIcon.js";
+import { GoogleAuthMethod } from "../../config/AuthMethod";
+import SocialmediaAuth from "../../services/FirebaseAuth";
 
 class Login extends React.Component {
   static propTypes = {
@@ -69,6 +67,11 @@ class Login extends React.Component {
     ) {
       return <Redirect to={from} />;
     }
+
+    const handleOnclickWithGoogle = async (provider) => {
+      const userCred = await SocialmediaAuth(provider);
+      console.log(userCred);
+    };
 
     return (
       <div className="auth-page">
@@ -131,7 +134,14 @@ class Login extends React.Component {
                   <div className="d-flex align-items-center my-3">
                     <p className="social-label mb-0">Signin with</p>
                     <div className="socials">
-                      <Button variant="primary" size="lg">
+                      <Button
+                        onClick={() =>
+                          handleOnclickWithGoogle(GoogleAuthMethod)
+                        }
+                        variant="primary"
+                        className="SocialBtn"
+                        size="lg"
+                      >
                         <GoogleIcon />
                       </Button>{" "}
                       <Button variant="primary" size="lg">

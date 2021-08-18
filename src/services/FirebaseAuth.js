@@ -1,8 +1,7 @@
 import { GoogleAuthMethod } from "../config/AuthMethod";
 import { useEffect, useState } from "react";
-import UserProfile from "../components/UserProfile";
+import UserProfile from "../components/userProfile/UserProfile";
 import firebase from "../config/FirebaseConfig";
-import App from "../App";
 const SocialmediaAuth = (provider) => {
   const [auth, setAuth] = useState(
     false || window.localStorage.getItem("auth") === "true"
@@ -32,7 +31,9 @@ const SocialmediaAuth = (provider) => {
       return er;
     });
   return (
-    <div className="App">{auth ? <UserProfile token={token} /> : <App />}</div>
+    <div className="App">
+      {auth ? <UserProfile token={token} /> : <UserProfile />}
+    </div>
   );
 };
 export default SocialmediaAuth;
