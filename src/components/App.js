@@ -1,7 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Switch, Route, Redirect } from "react-router";
-import { HashRouter } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  HashRouter,
+  Redirect,
+} from "react-router-dom";
 import LayoutComponent from "../components/Layout/Layout.js";
 import ErrorPage from "../pages/error/ErrorPage.js";
 import Login from "../pages/login/Login.js";
@@ -9,7 +14,6 @@ import Register from "../pages/register/Register.js";
 import { logoutUser } from "../actions/auth.js";
 
 import "../styles/app.scss";
-import { ToastContainer } from "react-toastify";
 
 const PrivateRoute = ({ dispatch, component, ...rest }) => {
   if (
@@ -30,8 +34,7 @@ const PrivateRoute = ({ dispatch, component, ...rest }) => {
 class App extends React.PureComponent {
   render() {
     return (
-      <div>
-        <ToastContainer />
+      <div className="App">
         <HashRouter>
           <Switch>
             <Route
@@ -39,11 +42,7 @@ class App extends React.PureComponent {
               exact
               render={() => <Redirect to="/template/dashboard" />}
             />
-            <Route
-              path="/template"
-              exact
-              render={() => <Redirect to="/template/dashboard" />}
-            />
+
             <PrivateRoute
               path="/template"
               dispatch={this.props.dispatch}
@@ -52,7 +51,6 @@ class App extends React.PureComponent {
             <Route path="/login" exact component={Login} />
             <Route path="/error" exact component={ErrorPage} />
             <Route path="/register" exact component={Register} />
-            <Route component={ErrorPage} />
             <Route
               path="*"
               exact={true}

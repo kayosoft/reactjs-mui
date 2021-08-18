@@ -84,12 +84,20 @@ class Login extends React.Component {
             </Col>
             <Col xs={12} lg={6} className="right-column">
               <Widget className="widget-auth widget-p-lg">
-                <div className="d-flex align-items-center justify-content-between py-3 text-center">
+                <div className="align-items-center justify-content-center py-3 text-center">
                   <p className="auth-header mb-0">TUNZI FARM</p>
+                  <p
+                    style={{
+                      color: "gray",
+                      fontSize: "14",
+                      marginTop: 5,
+                      marginBottom: 5,
+                    }}
+                  >
+                    Welcome back!, please Signin ypur accont.
+                  </p>
                 </div>
-                <div className="auth-info my-2">
-                  <p>Welcome back!, please Signin ypur accont.</p>
-                </div>
+
                 <form onSubmit={this.doLogin}>
                   <FormGroup className="my-3">
                     <FormText>Email</FormText>
@@ -119,39 +127,80 @@ class Login extends React.Component {
                       placeholder="Password"
                     />
                   </FormGroup>
-                  <Link to="/error">Signin with OTP?</Link>
-                  <Link to="/error">Forgot password?</Link>
+                  <div className="d-flex my-3">
+                    <div className="socials align-items-left">
+                      <Link to="/error">Signin with OTP?</Link>
+                      {"  "}
+                    </div>
+                    <div className="socials align-items-center justify-content-center">
+                      <Link to="/error">Forgot password?</Link>
+                    </div>
+                  </div>
+
                   <div className="bg-widget d-flex justify-content-center">
                     <Button
-                      className="btn btn-primary rounded-pill my-6"
+                      style={{
+                        color: "#fff",
+                        width: 400,
+                        backgroundColor: "#169BD7",
+                        height: 40,
+                        borderRadius: 5,
+                        borderColor: "#169BD7",
+                        fontSize: "30",
+                        fontWeight: "bolder",
+                      }}
+                      className="btn btn-primary my-6"
                       type="submit"
                       color="secondary-red"
                     >
-                      Login
+                      Signin
                     </Button>
                   </div>
                   <p className="dividing-line my-3">&#8195;Or&#8195;</p>
-                  <div className="d-flex align-items-center my-3">
-                    <p className="social-label mb-0">Signin with</p>
+                  <div className="d-flex align-items-center justify-content-center my-3">
                     <div className="socials">
                       <Button
+                        style={{
+                          color: "#253B80",
+                          width: 380,
+                          backgroundColor: "#fff",
+                          height: 40,
+                          borderRadius: 5,
+                          borderColor: "#169BD7",
+                          fontSize: "30",
+                          fontWeight: "bolder",
+                          marginTop: 10,
+                          marginBottom: 5,
+                        }}
                         onClick={() =>
                           handleOnclickWithGoogle(GoogleAuthMethod)
                         }
-                        variant="primary"
                         className="SocialBtn"
-                        size="lg"
                       >
-                        <GoogleIcon />
-                      </Button>{" "}
-                      <Button variant="primary" size="lg">
-                        <FacebookIcon />
+                        <GoogleIcon /> Signin with your google Account
+                      </Button>
+                      <Button
+                        style={{
+                          color: "#253B80",
+                          width: 380,
+                          backgroundColor: "#fff",
+                          height: 40,
+                          borderRadius: 5,
+                          borderColor: "#253B80",
+                          fontSize: "30",
+                          fontWeight: "bolder",
+                          marginTop: 5,
+                          marginBottom: 10,
+                        }}
+                      >
+                        <FacebookIcon /> Signin with your facebook Account
                       </Button>
                     </div>
                   </div>
-                  <Link to="/register">
-                    Don’t have an account? Sign Up here
-                  </Link>
+                  <p>
+                    Don’t have an account?{" "}
+                    <Link to="/register">Try for free</Link>
+                  </p>
                 </form>
               </Widget>
             </Col>
