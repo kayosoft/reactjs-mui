@@ -1,12 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  HashRouter,
-  Redirect,
-} from "react-router-dom";
+import { Switch, Route, HashRouter, Redirect } from "react-router-dom";
 import LayoutComponent from "../components/Layout/Layout.js";
 import ErrorPage from "../pages/error/ErrorPage.js";
 import Login from "../pages/login/Login.js";
