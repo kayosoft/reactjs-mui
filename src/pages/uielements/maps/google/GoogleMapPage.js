@@ -35,7 +35,9 @@ function GoogleMapPage() {
         <Marker position={{ lat: 40.6976701, lng: -74.2598654 }}/>
       </GoogleMap>
     </div>
-  ) : <></>
+  ) : <div>
+    <p>Maps</p>
+  </div>
 }
 
 export default React.memo(GoogleMapPage);
