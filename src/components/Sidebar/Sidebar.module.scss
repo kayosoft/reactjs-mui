@@ -9,10 +9,13 @@
   top: 0;
   bottom: 0;
   padding-left: 16px;
-  background-color: $sidebar-color;
+  background-color: hsl(222, 77%, 95%);
   overflow-y: auto;
   transition: height 1s;
   transform: translateX(-$sidebar-width-open);
+  box-shadow: 4px 4px 4px 0 rgba(52, 52, 53, 0.2);
+  // box-shadow: 0 8px 6px 6px rgba(52, 52, 53, 0.2);
+  border-left: 1px solid hsl(222, 77%, 95%);
 
   @media print {
     display: none;
@@ -76,9 +79,8 @@
 
 .navTitle {
   margin: 32px 0 8px;
-  font-size:$font-size-sm;
+  font-size: $font-size-sm;
   font-weight: $font-weight-normal;
   color: $base-dark-gray;
   text-transform: uppercase;
 }
-

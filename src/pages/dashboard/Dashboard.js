@@ -65,10 +65,10 @@ class Dashboard extends React.Component {
   }
 
   changeCheck(event, checkbox, id) {
-    this.state[checkbox][id] = event.target.checked;
+    this.setState[checkbox][id] = event.target.checked;
 
     if (!event.target.checked) {
-      this.state[checkbox][id] = false;
+      this.setState[checkbox][id] = false;
     }
     this.setState({
       [checkbox]: this.state[checkbox],
@@ -84,9 +84,12 @@ class Dashboard extends React.Component {
               <Col className="mb-4 mb-md-0" xs={12} md={6}>
                 <Widget className="">
                   <div className="d-flex justify-content-between widget-p-md">
-                    <div className="headline-3 d-flex align-items-center">Your activity</div>
+                    <div className="headline-3 d-flex align-items-center">
+                      Your activity
+                    </div>
                     <ButtonDropdown
-                      isOpen={this.state.dropdownOpenOne} toggle={this.toggleOne}
+                      isOpen={this.state.dropdownOpenOne}
+                      toggle={this.toggleOne}
                       className=""
                     >
                       <DropdownToggle caret>
@@ -99,15 +102,18 @@ class Dashboard extends React.Component {
                       </DropdownMenu>
                     </ButtonDropdown>
                   </div>
-                  <ApexActivityChart className="pb-4"/>
+                  <ApexActivityChart className="pb-4" />
                 </Widget>
               </Col>
               <Col xs={12} md={6}>
                 <Widget className="widget-p-md">
                   <div className="d-flex justify-content-between">
-                    <div className="headline-3 d-flex align-items-center">Your meals</div>
+                    <div className="headline-3 d-flex align-items-center">
+                      Your meals
+                    </div>
                     <ButtonDropdown
-                      isOpen={this.state.dropdownOpenTwo} toggle={this.toggleTwo}
+                      isOpen={this.state.dropdownOpenTwo}
+                      toggle={this.toggleTwo}
                       className=""
                     >
                       <DropdownToggle caret>
@@ -120,22 +126,24 @@ class Dashboard extends React.Component {
                       </DropdownMenu>
                     </ButtonDropdown>
                   </div>
-                  {this.meals.map((meal) =>
+                  {this.meals.map((meal) => (
                     <div key={uuidv4()} className={`mt-4 ${s.widgetBlock}`}>
                       <div className={s.widgetBody}>
                         <div className="d-flex">
-                          <img className="img-fluid mr-2" src={meal} alt="..." />
+                          <img
+                            className="img-fluid mr-2"
+                            src={meal}
+                            alt="..."
+                          />
                           <div className="d-flex flex-column">
                             <p className="body-2">Salmon salad</p>
                             <p className="body-3 muted">300 g</p>
                           </div>
                         </div>
-                        <div className="body-3 muted">
-                          175 cal
-                        </div>
+                        <div className="body-3 muted">175 cal</div>
                       </div>
                     </div>
-                  )}
+                  ))}
                 </Widget>
               </Col>
             </Row>
@@ -145,14 +153,28 @@ class Dashboard extends React.Component {
                   <div className="d-flex flex-wrap align-items-center justify-content-center">
                     <div className="d-flex flex-column align-items-center col-12 col-xl-6 p-sm-4">
                       <p className="headline-1">Upgrade your plan</p>
-                      <p className="body-3">So how did the classical Latin become so </p>
+                      <p className="body-3">
+                        So how did the classical Latin become so{" "}
+                      </p>
                       <div className="d-flex justify-content-between my-4">
-                        <Button className="rounded-pill mr-3" color="primary">Go Premium</Button>
-                        <Button className="rounded-pill body-3" outline color="dark">Try for free</Button>
+                        <Button className="rounded-pill mr-3" color="primary">
+                          Go Premium
+                        </Button>
+                        <Button
+                          className="rounded-pill body-3"
+                          outline
+                          color="dark"
+                        >
+                          Try for free
+                        </Button>
                       </div>
                     </div>
                     <div className="d-flex justify-content-center col-12 col-xl-6">
-                      <img className="p-1 img-fluid" src={upgradeImage} alt="..." />
+                      <img
+                        className="p-1 img-fluid"
+                        src={upgradeImage}
+                        alt="..."
+                      />
                     </div>
                   </div>
                 </Widget>
@@ -164,14 +186,24 @@ class Dashboard extends React.Component {
                 <Widget className="widget-p-sm">
                   <div className={s.smallWidget}>
                     <div className="d-flex mb-4">
-                      <img className="py-1 mr-2 img-fluid" src={heartRed} alt="..." />
+                      <img
+                        className="py-1 mr-2 img-fluid"
+                        src={heartRed}
+                        alt="..."
+                      />
                       <div className="d-flex flex-column">
                         <p className="headline-3">Text</p>
-                        <p className="body-2">Num<span className="body-3 muted">/ ber</span></p>
+                        <p className="body-2">
+                          Num<span className="body-3 muted">/ ber</span>
+                        </p>
                       </div>
                     </div>
                     <div>
-                      <Progress color="secondary-red" className={`progress-xs ${s.mutedPink}`} value="75" />
+                      <Progress
+                        color="secondary-red"
+                        className={`progress-xs ${s.mutedPink}`}
+                        value="75"
+                      />
                     </div>
                   </div>
                 </Widget>
@@ -180,14 +212,24 @@ class Dashboard extends React.Component {
                 <Widget className="widget-p-sm">
                   <div className={s.smallWidget}>
                     <div className="d-flex mb-4">
-                      <img className="py-1 mr-2 img-fluid" src={heartYellow} alt="..." />
+                      <img
+                        className="py-1 mr-2 img-fluid"
+                        src={heartYellow}
+                        alt="..."
+                      />
                       <div className="d-flex flex-column">
                         <p className="headline-3">Text</p>
-                        <p className="body-2">Num<span className="body-3 muted">/ ber</span></p>
+                        <p className="body-2">
+                          Num<span className="body-3 muted">/ ber</span>
+                        </p>
                       </div>
                     </div>
                     <div>
-                      <Progress color="secondary-yellow" className={`progress-xs ${s.mutedYellow}`} value="75" />
+                      <Progress
+                        color="secondary-yellow"
+                        className={`progress-xs ${s.mutedYellow}`}
+                        value="75"
+                      />
                     </div>
                   </div>
                 </Widget>
@@ -196,14 +238,24 @@ class Dashboard extends React.Component {
                 <Widget className="widget-p-sm">
                   <div className={s.smallWidget}>
                     <div className="d-flex mb-4">
-                      <img className="py-1 mr-2 img-fluid" src={heartTeal} alt="..." />
+                      <img
+                        className="py-1 mr-2 img-fluid"
+                        src={heartTeal}
+                        alt="..."
+                      />
                       <div className="d-flex flex-column">
                         <p className="headline-3">Text</p>
-                        <p className="body-2">Num<span className="body-3 muted">/ ber</span></p>
+                        <p className="body-2">
+                          Num<span className="body-3 muted">/ ber</span>
+                        </p>
                       </div>
                     </div>
                     <div>
-                      <Progress color="secondary-cyan" className={`progress-xs ${s.mutedTeal}`} value="75" />
+                      <Progress
+                        color="secondary-cyan"
+                        className={`progress-xs ${s.mutedTeal}`}
+                        value="75"
+                      />
                     </div>
                   </div>
                 </Widget>
@@ -212,14 +264,24 @@ class Dashboard extends React.Component {
                 <Widget className="widget-p-sm">
                   <div className={s.smallWidget}>
                     <div className="d-flex mb-4">
-                      <img className="py-1 mr-2 img-fluid" src={heartViolet} alt="..." />
+                      <img
+                        className="py-1 mr-2 img-fluid"
+                        src={heartViolet}
+                        alt="..."
+                      />
                       <div className="d-flex flex-column">
                         <p className="headline-3">Text</p>
-                        <p className="body-2">Num<span className="body-3 muted">/ ber</span></p>
+                        <p className="body-2">
+                          Num<span className="body-3 muted">/ ber</span>
+                        </p>
                       </div>
                     </div>
                     <div>
-                      <Progress color="violet" className={`progress-xs ${s.mutedViolet}`} value="75" />
+                      <Progress
+                        color="violet"
+                        className={`progress-xs ${s.mutedViolet}`}
+                        value="75"
+                      />
                     </div>
                   </div>
                 </Widget>
@@ -253,12 +315,11 @@ class Dashboard extends React.Component {
                 <div className={s.goalsTitle}>
                   <p className="headline-3">Your Goals</p>
                   <ButtonDropdown
-                    isOpen={this.state.dropdownOpenThree} toggle={this.toggleThree}
+                    isOpen={this.state.dropdownOpenThree}
+                    toggle={this.toggleThree}
                     className=""
                   >
-                    <DropdownToggle caret>
-                      &nbsp; Weekly &nbsp;
-                    </DropdownToggle>
+                    <DropdownToggle caret>&nbsp; Weekly &nbsp;</DropdownToggle>
                     <DropdownMenu>
                       <DropdownItem>Daily</DropdownItem>
                       <DropdownItem>Weekly</DropdownItem>
@@ -269,23 +330,41 @@ class Dashboard extends React.Component {
                 <div className="d-flex flex-column mt-3">
                   <div className={s.activity}>
                     <p className="body-2">Sleep</p>
-                    <p className="body-2">92<span className="body-3 muted"> / 160</span></p>
+                    <p className="body-2">
+                      92<span className="body-3 muted"> / 160</span>
+                    </p>
                   </div>
-                  <Progress color="secondary-red" className="progress-xs" value={60} />
+                  <Progress
+                    color="secondary-red"
+                    className="progress-xs"
+                    value={60}
+                  />
                 </div>
                 <div className="d-flex flex-column mt-3">
                   <div className={s.activity}>
                     <p className="body-2">Sport</p>
-                    <p className="body-2">40<span className="body-3 muted"> / 50</span></p>
+                    <p className="body-2">
+                      40<span className="body-3 muted"> / 50</span>
+                    </p>
                   </div>
-                  <Progress color="secondary-yellow" className="progress-xs" value={80} />
+                  <Progress
+                    color="secondary-yellow"
+                    className="progress-xs"
+                    value={80}
+                  />
                 </div>
                 <div className="d-flex flex-column mt-3">
                   <div className={s.activity}>
                     <p className="body-2">Water</p>
-                    <p className="body-2">25<span className="body-3 muted"> / 40</span></p>
+                    <p className="body-2">
+                      25<span className="body-3 muted"> / 40</span>
+                    </p>
                   </div>
-                  <Progress color="secondary-cyan" className="progress-xs" value={40} />
+                  <Progress
+                    color="secondary-cyan"
+                    className="progress-xs"
+                    value={40}
+                  />
                 </div>
               </div>
               <p className="headline-3">Appointments</p>
@@ -315,7 +394,11 @@ class Dashboard extends React.Component {
               <div className={`mt-3 ${s.widgetBlock}`}>
                 <div className={s.widgetBody}>
                   <div className="d-flex">
-                    <img className="img-fluid mr-2" src={therapyIcon} alt="..." />
+                    <img
+                      className="img-fluid mr-2"
+                      src={therapyIcon}
+                      alt="..."
+                    />
                     <div className="d-flex flex-column">
                       <p className="body-2">03.11 , 16:00 - 17:30</p>
                       <p className="body-3 muted">Therapy</p>
@@ -335,8 +418,12 @@ class Dashboard extends React.Component {
                   </div>
                 </div>
               </div>
-              <a className={`btn-secondary-red ${s.statsBtn}`} href="#top" role="button">
-                <img className={s.pieImg}  src={statsPie} alt="..." />
+              <a
+                className={`btn-secondary-red ${s.statsBtn}`}
+                href="#top"
+                role="button"
+              >
+                <img className={s.pieImg} src={statsPie} alt="..." />
                 <div>
                   <p className="headline-2">STATISTIC</p>
                   <p className="body-3">Download your activity</p>
@@ -346,7 +433,7 @@ class Dashboard extends React.Component {
           </Col>
         </Row>
       </div>
-    )
+    );
   }
 }
 

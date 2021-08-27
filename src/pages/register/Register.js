@@ -16,12 +16,11 @@ import Footer from "../../components/Footer/Footer.js";
 import Login from "../login/Login.js";
 
 import loginImage from "../../assets/registerImage.svg";
-import SofiaLogo from "../../components/Icons/SidebarIcons/SofiaLogo.js";
+
 import GoogleIcon from "../../components/Icons/AuthIcons/GoogleIcon.js";
-import TwitterIcon from "../../components/Icons/AuthIcons/TwitterIcon.js";
+
 import FacebookIcon from "../../components/Icons/AuthIcons/FacebookIcon.js";
-import GithubIcon from "../../components/Icons/AuthIcons/GithubIcon.js";
-import LinkedinIcon from "../../components/Icons/AuthIcons/LinkedinIcon.js";
+
 import { registerUser } from "../../actions/register.js";
 
 class Register extends React.Component {
@@ -85,15 +84,13 @@ class Register extends React.Component {
             </Col>
             <Col xs={12} lg={6} className="right-column">
               <Widget className="widget-auth widget-p-lg">
-                <div className="d-flex align-items-center justify-content-between py-3">
-                  <p className="auth-header mb-0">Sign Up</p>
-                </div>
-                <div className="auth-info my-2">
-                  <p>Fill hte form to register.</p>
+                <div className="align-items-left justify-content-between py-3">
+                  <p className="auth-header mb-0">Create your account</p>
+                  <p>Fill the form to register.</p>
                 </div>
                 <form onSubmit={this.doRegister}>
                   <Row className="d-flex align-items-center">
-                    <Col className="left-column">
+                    <Col className="first-name">
                       <FormGroup className="my-3">
                         <FormText>First Name</FormText>
                         <Input
@@ -108,7 +105,7 @@ class Register extends React.Component {
                         />
                       </FormGroup>
                     </Col>
-                    <Col className="right-column">
+                    <Col className="last-name">
                       <FormGroup className="my-3">
                         <FormText>Last Name</FormText>
                         <Input
@@ -139,43 +136,116 @@ class Register extends React.Component {
                     />
                   </FormGroup>
                   <FormGroup className="my-3">
+                    <FormText>Phone Number</FormText>
+                    <Input
+                      id="phone"
+                      className="input-transparent pl-3"
+                      value={this.state.phone}
+                      onChange={this.changephone}
+                      type="phone"
+                      required
+                      name="phone"
+                      placeholder="+256754748000"
+                    />
+                  </FormGroup>
+                  <FormGroup className="my-3">
                     <div className="d-flex justify-content-between">
-                      <FormText>Password</FormText>
+                      <FormText>Country</FormText>
                     </div>
                     <Input
-                      id="password"
+                      id="country"
                       className="input-transparent pl-3"
-                      value={this.state.password}
-                      onChange={this.changePassword}
-                      type="password"
+                      value={this.state.Country}
+                      onChange={this.changeCountry}
+                      type="Country"
                       required
-                      name="password"
-                      placeholder="Place your password here"
+                      name="Country"
+                      placeholder="Place your Country here"
+                    />
+                  </FormGroup>
+                  <FormGroup className="my-3">
+                    <div className="d-flex justify-content-between">
+                      <FormText>District</FormText>
+                    </div>
+                    <Input
+                      id="district"
+                      className="input-transparent pl-3"
+                      value={this.state.District}
+                      onChange={this.changeDistrict}
+                      type="district"
+                      required
+                      name="district"
+                      placeholder="Place your district here"
                     />
                   </FormGroup>
                   <div className="bg-widget d-flex justify-content-center">
                     <Button
-                      className="rounded-pill my-3"
+                      style={{
+                        color: "#fff",
+                        width: 400,
+                        backgroundColor: "#169BD7",
+                        height: 40,
+                        borderRadius: 5,
+                        borderColor: "#169BD7",
+                        fontSize: "30",
+                        fontWeight: "bolder",
+                      }}
+                      className="my-3"
                       type="submit"
-                      color="secondary-red"
                     >
                       Sign Up
                     </Button>
                   </div>
-                  <p className="dividing-line my-3">&#8195;Or&#8195;</p>
-                  <div className="d-flex align-items-center my-3">
-                    <p className="social-label mb-0">Login with</p>
+                  <p className="dividing-line my-3">
+                    &#8195;Or&#8195;Signup&#8195;
+                  </p>
+                  <div className="d-flex align-items-center justify-content-center my-3">
                     <div className="socials">
-                      <a href="https://flatlogic.com/">
-                        <GoogleIcon />
-                      </a>
-
-                      <a href="https://flatlogic.com/">
-                        <FacebookIcon />
-                      </a>
+                      <Button
+                        style={{
+                          color: "#253B80",
+                          width: 170,
+                          backgroundColor: "#fff",
+                          height: 40,
+                          borderRadius: 5,
+                          borderColor: "#169BD7",
+                          fontSize: "30",
+                          fontWeight: "bolder",
+                          marginTop: 10,
+                          marginBottom: 5,
+                          marginRight: 5,
+                        }}
+                        className="SocialBtn"
+                        size="lg"
+                      >
+                        <GoogleIcon /> Google
+                      </Button>
+                      {"  "}
+                    </div>
+                    <div className="socials">
+                      <Button
+                        style={{
+                          color: "#253B80",
+                          width: 170,
+                          backgroundColor: "#fff",
+                          height: 40,
+                          borderRadius: 5,
+                          borderColor: "#253B80",
+                          fontSize: "30",
+                          fontWeight: "bolder",
+                          marginTop: 10,
+                          marginBottom: 5,
+                          marginLeft: 5,
+                        }}
+                        size="lg"
+                      >
+                        <FacebookIcon /> Facebook
+                      </Button>
                     </div>
                   </div>
-                  <Link to="/login">Already have an account, Signin</Link>
+                  <p>
+                    Already have an account, <Link to="/login">Signin</Link>
+                  </p>
                 </form>
               </Widget>
             </Col>
