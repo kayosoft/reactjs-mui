@@ -52,6 +52,8 @@ export default function LoginForm() {
         <Stack spacing={3}>
           <TextField
             fullWidth
+            id="email"
+            name="email"
             autoComplete="username"
             type="email"
             label="Email address"

@@ -1,5 +1,5 @@
 {
-  "name": "@Tunzi/material-UIreact",
+  "name": "tunzi-material-ui",
   "author": "tunzi.cc",
   "licence": "MIT",
   "version": "1.0.0",
@@ -43,6 +43,7 @@
     "@iconify/icons-ic": "^1.1.9",
     "@iconify/react": "^3.0.1",
     "@material-ui/core": "^5.0.0-beta.4",
+    "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^5.0.0-alpha.43",
     "@material-ui/styles": "^5.0.0-beta.4",
     "@material-ui/utils": "^5.0.0-beta.4",
@@ -69,6 +70,8 @@
     "redux-thunk": "^2.3.0",
     "simplebar": "^5.3.5",
     "simplebar-react": "^2.3.5",
+    "source-map": "^0.5.7",
+    "source-map-js": "^0.6.2",
     "web-vitals": "^2.1.0",
     "yup": "^0.32.9"
   },
