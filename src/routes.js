@@ -2,6 +2,7 @@ import { Navigate, useRoutes } from "react-router-dom";
 // layouts
 import DashboardLayout from "./layouts/dashboard";
 import LogoOnlyLayout from "./layouts/LogoOnlyLayout";
+import Farmsetup from "./layouts/farmsetup/Farmsetup";
 //
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -38,6 +39,11 @@ export default function Router() {
         { path: "products", element: <Products /> },
         { path: "blog", element: <Blog /> },
       ],
+    },
+    {
+      path: "/farmsetup",
+      element: <Farmsetup />,
+      children: [{ path: "/", element: <Navigate to="/farmsetup" replace /> }],
     },
 
     { path: "*", element: <Navigate to="/404" replace /> },

@@ -1,95 +1,180 @@
-import React from "react";
+import React, { useState } from "react";
+import {
+  Typography,
+  TextField,
+  Button,
+  Stepper,
+  Step,
+  StepLabel,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-import Stepper from "@material-ui/core/Stepper";
-import Step from "@material-ui/core/Step";
-import StepLabel from "@material-ui/core/StepLabel";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
+import {
+  useForm,
+  Controller,
+  FormProvider,
+  useFormContext,
+} from "react-hook-form";
+// Component
+import CropType from "./CroptypeForm";
+import PlantingDetail from "./PlantingdetailForm";
+import Finish from "./Finish";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "100%",
-  },
-  backButton: {
+  button: {
     marginRight: theme.spacing(1),
-  },
-  instructions: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
   },
 }));
 
 function getSteps() {
-  return ["Crop Type", "Planting Details", "Finish"];
+  return ["Crop Type", "Planting  Detail", "Finish"];
 }
 
-function getStepContent(stepIndex) {
-  switch (stepIndex) {
+function getStepContent(step) {
+  switch (step) {
     case 0:
-      return "Select campaign settings...";
+      return <CropType />;
+
     case 1:
-      return "What is an ad group anyways?";
+      return <PlantingDetail />;
     case 2:
-      return "This is the bit I really care about!";
+      return <Finish />;
+
     default:
-      return "Unknown stepIndex";
+      return "unknown step";
   }
 }
 
-export default function AddCrop() {
+const AddCropForm = () => {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState(0);
+  const methods = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      nickName: "",
+      emailAddress: "",
+      phoneNumber: "",
+      alternatePhone: "",
+      address1: "",
+      address2: "",
+      country: "",
+      cardNumber: "",
+      cardMonth: "",
+      cardYear: "",
+    },
+  });
+  const [activeStep, setActiveStep] = useState(0);
+  const [skippedSteps, setSkippedSteps] = useState([]);
   const steps = getSteps();
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  const isStepOptional = (step) => {
+    return step === 4 || step === 5;
+  };
+
+  const isStepSkipped = (step) => {
+    return skippedSteps.includes(step);
+  };
+
+  const handleNext = (data) => {
+    console.log(data);
+    if (activeStep == steps.length - 1) {
+      fetch("https://jsonplaceholder.typicode.com/comments")
+        .then((data) => data.json())
+        .then((res) => {
+          console.log(res);
+          setActiveStep(activeStep + 1);
+        });
+    } else {
+      setActiveStep(activeStep + 1);
+      setSkippedSteps(
+        skippedSteps.filter((skipItem) => skipItem !== activeStep)
+      );
+    }
   };
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    setActiveStep(activeStep - 1);
   };
 
-  const handleReset = () => {
-    setActiveStep(0);
+  const handleSkip = () => {
+    if (!isStepSkipped(activeStep)) {
+      setSkippedSteps([...skippedSteps, activeStep]);
+    }
+    setActiveStep(activeStep + 1);
   };
 
+  // const onSubmit = (data) => {
+  //   console.log(data);
+  // };
   return (
-    <div className={classes.root}>
-      <Stepper activeStep={activeStep} alternativeLabel>
-        {steps.map((label) => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-          </Step>
-        ))}
+    <div>
+      <Stepper alternativeLabel activeStep={activeStep}>
+        {steps.map((step, index) => {
+          const labelProps = {};
+          const stepProps = {};
+          if (isStepOptional(index)) {
+            labelProps.optional = (
+              <Typography
+                variant="caption"
+                align="center"
+                style={{ display: "block" }}
+              >
+                optional
+              </Typography>
+            );
+          }
+          if (isStepSkipped(index)) {
+            stepProps.completed = false;
+          }
+          return (
+            <Step {...stepProps} key={index}>
+              <StepLabel {...labelProps}>{step}</StepLabel>
+            </Step>
+          );
+        })}
       </Stepper>
-      <div>
-        {activeStep === steps.length ? (
-          <div>
-            <Typography className={classes.instructions}>
-              All steps completed
-            </Typography>
-            <Button onClick={handleReset}>Reset</Button>
-          </div>
-        ) : (
-          <div>
-            <Typography className={classes.instructions}>
+
+      {activeStep === steps.length ? (
+        <Typography variant="h3" align="center">
+          Thank You
+        </Typography>
+      ) : (
+        <>
+          <FormProvider {...methods}>
+            <form onSubmit={methods.handleSubmit(handleNext)}>
               {getStepContent(activeStep)}
-            </Typography>
-            <div>
+
               <Button
+                className={classes.button}
                 disabled={activeStep === 0}
                 onClick={handleBack}
-                className={classes.backButton}
               >
-                Back
+                back
               </Button>
-              <Button variant="contained" color="primary" onClick={handleNext}>
+              {isStepOptional(activeStep) && (
+                <Button
+                  className={classes.button}
+                  variant="contained"
+                  color="primary"
+                  onClick={handleSkip}
+                >
+                  skip
+                </Button>
+              )}
+              <Button
+                className={classes.button}
+                variant="contained"
+                color="primary"
+                // onClick={handleNext}
+                type="submit"
+              >
                 {activeStep === steps.length - 1 ? "Finish" : "Next"}
               </Button>
-            </div>
-          </div>
-        )}
-      </div>
+            </form>
+          </FormProvider>
+        </>
+      )}
     </div>
   );
-}
+};
+
+export default AddCropForm;

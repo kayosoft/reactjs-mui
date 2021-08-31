@@ -146,6 +146,7 @@ function Content(props) {
           onClose={handleClose}
           aria-labelledby="customized-dialog-title"
           open={open}
+          onBackdropClick="false"
         >
           <DialogTitle id="customized-dialog-title" onClose={handleClose}>
             Add Crop
@@ -153,7 +154,6 @@ function Content(props) {
           <DialogContent dividers>
             <AddCrop />
           </DialogContent>
-          
         </Dialog>
       </div>
       <div className={classes.contentWrapper}>

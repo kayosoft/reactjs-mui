@@ -14,10 +14,10 @@ import {
 } from "@material-ui/core";
 import { alpha} from "@material-ui/core/styles";
 // components
-import Logo from "../../components/Logo";
-import Scrollbar from "../../components/Scrollbar";
-import NavSection from "../../components/NavSection";
-import { MHidden } from "../../components/@material-extend";
+import Logo from "../Logo";
+import Scrollbar from "../Scrollbar";
+import NavSection from "./NavSection";
+import { MHidden } from "../@material-extend";
 //
 import sidebarConfig from "./SidebarConfig";
 import account from "../../_mocks_/account";

@@ -17,22 +17,28 @@ const sidebarConfig = [
     path: "/dashboard/app",
     icon: getIcon(pieChart2Fill),
   },
+
   {
-    title: "Crops",
-    path: "/dashboard/crops",
+    title: "Crop",
+    icon: getIcon(cropFill),
+    children: [
+      {
+        title: "Crops",
+        path: "/dashboard/crops",
+        icon: getIcon(cropFill),
+      },
+      {
+        title: "Crop Plan",
+        path: "#",
+        icon: getIcon(cropFill),
+      },
+    ],
+  },
+  {
+    title: "Livestock",
+    path: "#",
     icon: getIcon(cropFill),
   },
-  // {
-  //   title: "product",
-  //   path: "/dashboard/products",
-  //   icon: getIcon(shoppingBagFill),
-  // },
-
-  //   {
-  //     title: 'Not found',
-  //     path: '/404',
-  //     icon: getIcon(alertTriangleFill)
-  //   }
 ];
 
 export default sidebarConfig;
