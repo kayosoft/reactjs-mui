@@ -26,13 +26,13 @@ function getSteps() {
 function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return "Select campaign settings...";
+      return "Can't load API ..";
     case 1:
-      return "What is an ad group anyways?";
+      return "Can't load API ..";
     case 2:
-      return "This is the bit I really care about!";
+      return "Can't load API ..";
     default:
-      return "Unknown stepIndex";
+      return "Can't load API ..";
   }
 }
 
