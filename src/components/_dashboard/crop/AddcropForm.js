@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
   Typography,
-  TextField,
+  
   Button,
   Stepper,
   Step,
@@ -10,9 +10,9 @@ import {
 import { makeStyles } from "@material-ui/styles";
 import {
   useForm,
-  Controller,
+ 
   FormProvider,
-  useFormContext,
+
 } from "react-hook-form";
 // Component
 import CropType from "./CroptypeForm";
@@ -76,7 +76,7 @@ const AddCropForm = () => {
 
   const handleNext = (data) => {
     console.log(data);
-    if (activeStep == steps.length - 1) {
+    if (activeStep === steps.length - 1) {
       fetch("https://jsonplaceholder.typicode.com/comments")
         .then((data) => data.json())
         .then((res) => {

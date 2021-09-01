@@ -38,7 +38,7 @@ const styles = (theme) => ({
 });
 
 function Header(props) {
-  const { classes, onDrawerToggle } = props;
+  const { classes } = props;
 
   return (
     <React.Fragment>
