@@ -1,4 +1,3 @@
-import { Icon } from "@iconify/react";
 
 // material
 import { alpha, styled } from "@material-ui/core/styles";

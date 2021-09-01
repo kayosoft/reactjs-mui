@@ -3,16 +3,8 @@ import { useEffect } from "react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 // material
 import { styled } from "@material-ui/core/styles";
-import {
-  Box,
-  Link,
-  Button,
-  Drawer,
-  Typography,
-  Avatar,
-  Stack,
-} from "@material-ui/core";
-import { alpha} from "@material-ui/core/styles";
+import { Box, Button, Drawer, Stack } from "@material-ui/core";
+import { alpha } from "@material-ui/core/styles";
 // components
 import Logo from "../Logo";
 import Scrollbar from "../Scrollbar";
@@ -20,7 +12,7 @@ import NavSection from "./NavSection";
 import { MHidden } from "../@material-extend";
 //
 import sidebarConfig from "./SidebarConfig";
-import account from "../../_mocks_/account";
+//import account from "../../_mocks_/account";
 
 // ----------------------------------------------------------------------
 
@@ -31,10 +23,8 @@ const RootStyle = styled("div")(({ theme }) => ({
   [theme.breakpoints.up("lg")]: {
     flexShrink: 0,
     width: DRAWER_WIDTH,
-    
   },
 }));
-
 
 // ----------------------------------------------------------------------
 
@@ -102,16 +92,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
             bgcolor: "grey.200",
           }}
         >
-          
-
-          
-
-          <Button
-            fullWidth
-            href="#"
-            target="_blank"
-            variant="contained"
-          >
+          <Button fullWidth href="#" target="_blank" variant="contained">
             Need help?
           </Button>
         </Stack>
