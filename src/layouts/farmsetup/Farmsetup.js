@@ -75,7 +75,7 @@ export default function Farmsetup() {
         
       </Tabs>
       <TabPanel value={value} index={0}>
-        Item One
+        <button></button>
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two

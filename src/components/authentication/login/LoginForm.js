@@ -1,87 +1,85 @@
-import * as Yup from "yup";
-import { useState } from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-import { useFormik, Form, FormikProvider } from "formik";
-import { Icon } from "@iconify/react";
-import eyeFill from "@iconify/icons-eva/eye-fill";
-import eyeOffFill from "@iconify/icons-eva/eye-off-fill";
+
 // material
-import {
-  Link,
-  Stack,
-  Checkbox,
-  TextField,
-  IconButton,
-  InputAdornment,
-  FormControlLabel,
-} from "@material-ui/core";
-import { LoadingButton } from "@material-ui/lab";
+import { Link, Stack, TextField, Button, Typography } from "@material-ui/core";
+import withStyles from "@material-ui/styles/withStyles";
+import CircularProgress from "@material-ui/core/CircularProgress";
+
+// Redux - Auth
+import { connect } from "react-redux";
+import { loginUser } from "../../../redux/actions/userActions";
 
 // ----------------------------------------------------------------------
-
-export default function LoginForm() {
-  const navigate = useNavigate();
-  const [showPassword, setShowPassword] = useState(false);
-
-  const LoginSchema = Yup.object().shape({
-    email: Yup.string()
-      .email("Email must be a valid email address")
-      .required("Email is required"),
-    password: Yup.string().required("Password is required"),
-  });
-
-  const formik = useFormik({
-    initialValues: {
+const styles = (theme) => ({});
+class LoginForm extends Component {
+  constructor() {
+    super();
+    this.state = {
       email: "",
       password: "",
-      remember: true,
-    },
-    validationSchema: LoginSchema,
-    onSubmit: () => {
-      navigate("/dashboard", { replace: true });
-    },
-  });
+      errors: {},
+      setShowPassword: false,
+    };
+  }
+  //const [showPassword, setShowPassword] = useState(false);
 
-  const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } =
-    formik;
-
-  const handleShowPassword = () => {
-    setShowPassword((show) => !show);
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.UI.errors) {
+      this.setState({ errors: nextProps.UI.errors });
+    }
+  }
+  // Handle submit
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const userData = {
+      email: this.state.email,
+      password: this.state.password,
+    };
+    this.props.loginUser(userData, this.props.useNavigate);
+  };
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
   };
 
-  return (
-    <FormikProvider value={formik}>
-      <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
+  // Show password function
+  // handleShowPassword = () => {
+  //   constsetShowPassword((show) => !show);
+  // };
+  render() {
+    const {
+      classes,
+      UI: { loading },
+    } = this.props;
+    const { errors } = this.state;
+    return (
+      <form noValidate onSubmit={this.handleSubmit}>
         <Stack spacing={3}>
           <TextField
             fullWidth
             id="email"
             name="email"
-            autoComplete="username"
             type="email"
             label="Email address"
-            {...getFieldProps("email")}
-            error={Boolean(touched.email && errors.email)}
-            helperText={touched.email && errors.email}
+            helperText={errors.email}
+            error={errors.email ? true : false}
+            value={this.state.email}
+            onChange={this.handleChange}
           />
 
           <TextField
             fullWidth
-            autoComplete="current-password"
-            type={showPassword ? "text" : "password"}
+            type={"password"}
             label="Password"
-            {...getFieldProps("password")}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton onClick={handleShowPassword} edge="end">
-                    <Icon icon={showPassword ? eyeFill : eyeOffFill} />
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-            error={Boolean(touched.password && errors.password)}
-            helperText={touched.password && errors.password}
+            name="password"
+            id="password"
+            helperText={errors.password}
+            error={errors.password ? true : false}
+            value={this.state.password}
+            onChange={this.handleChange}
           />
         </Stack>
 
@@ -91,10 +89,6 @@ export default function LoginForm() {
           justifyContent="space-between"
           sx={{ my: 2 }}
         >
-          <FormControlLabel
-            control={<Checkbox {...getFieldProps('remember')} checked={values.remember} />}
-            label="Remember me"
-          />
           <Link component={RouterLink} variant="subtitle2" to="#">
             Signin with OTP?
           </Link>
@@ -103,17 +97,38 @@ export default function LoginForm() {
             Forgot password?
           </Link>
         </Stack>
-
-        <LoadingButton
+        {errors.general && (
+          <Typography variant="body2" className={classes.customError}>
+            {errors.general}
+          </Typography>
+        )}
+        <Button
           fullWidth
           size="large"
-          type="submit"
           variant="contained"
-          loading={isSubmitting}
+          type="submit"
+          className={classes.button}
+          disabled={loading}
         >
           Login
-        </LoadingButton>
-      </Form>
-    </FormikProvider>
-  );
+          {loading && (
+            <CircularProgress size={30} className={classes.progress} />
+          )}
+        </Button>
+      </form>
+    );
+  }
 }
+const mapStateToProps = (state) => ({
+  user: state.user,
+  UI: state.UI,
+});
+
+const mapActionsToProps = {
+  loginUser,
+};
+
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(withStyles(styles)(LoginForm));

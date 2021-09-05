@@ -6,6 +6,9 @@ import "./App.css";
 // components
 import ScrollToTop from "./components/ScrollToTop";
 
+// Loader-spinner css
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"; 
+
 // ----------------------------------------------------------------------
 
 export default function App() {

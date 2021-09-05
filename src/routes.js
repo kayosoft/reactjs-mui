@@ -12,9 +12,13 @@ import Crops from "./pages/Crops";
 import User from "./pages/User";
 import NotFound from "./pages/Page404";
 
+// Auth Routes
+import AuthRoute from "./redux/AuthRoute";
+import BasicRoute from "./redux/BasicRoute";
+import { connect } from "react-redux";
 // ----------------------------------------------------------------------
 
-export default function Router() {
+function Router() {
   return useRoutes([
     {
       path: "/",
@@ -36,7 +40,6 @@ export default function Router() {
         { path: "crops", element: <Crops /> },
         { path: "user", element: <User /> },
         { path: "products", element: <Products /> },
-        
       ],
     },
     {
@@ -48,3 +51,5 @@ export default function Router() {
     { path: "*", element: <Navigate to="/404" replace /> },
   ]);
 }
+
+export default Router;
