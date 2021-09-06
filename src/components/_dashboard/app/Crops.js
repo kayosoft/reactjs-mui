@@ -1,4 +1,3 @@
-
 // material
 import { styled } from "@material-ui/core/styles";
 import { Card, Typography } from "@material-ui/core";
@@ -43,11 +42,11 @@ const TOTAL = 714;
 export default function Crops() {
   return (
     <RootStyle>
-      <div style ={{borderRadius: 5, borderColor: '#121269', borderWidth: 1}}>
-      <Typography variant="h3">{fShortenNumber(TOTAL)}</Typography>
-      <Typography variant="subtitle2" sx={{ opacity: 0.72 }}>
-        Crops - View Details
-      </Typography>
+      <div style={{ borderRadius: 5, borderColor: "#121269", borderWidth: 1 }}>
+        <Typography variant="h3">{fShortenNumber(TOTAL)}</Typography>
+        <Typography variant="subtitle2" sx={{ opacity: 0.72 }}>
+          Crops - View Details
+        </Typography>
       </div>
     </RootStyle>
   );

@@ -37,7 +37,7 @@ class LoginForm extends Component {
       email: this.state.email,
       password: this.state.password,
     };
-    this.props.loginUser(userData, this.props.useNavigate);
+    this.props.loginUser(userData, this.props.history);
   };
   handleChange = (event) => {
     this.setState({

@@ -9,7 +9,7 @@ import {
 } from "../types";
 import axios from "axios";
 
-export const loginUser = (userData, useNavigate) => (dispatch) => {
+export const loginUser = (userData, history) => (dispatch) => {
   dispatch({ type: LOADING_UI });
   axios
     .post("http://188.166.174.210/api/v1/sign-in", userData)
@@ -18,7 +18,7 @@ export const loginUser = (userData, useNavigate) => (dispatch) => {
         setAuthorizationHeader(res.data.token);
         dispatch(getUserData());
         dispatch({ type: CLEAR_ERRORS });
-        useNavigate.push("/dashboard");
+        history.push("/dashboard");
       } catch (err) {
         console.log(res, err);
       }
@@ -36,12 +36,12 @@ export const signupUser = (newUserData, useNavigate) => (dispatch) => {
   axios
     .post("http://188.166.174.210/api/v1/sign-up", newUserData)
     .then((res) => {
-    try {
-      setAuthorizationHeader(res.data.token);
-      dispatch(getUserData());
-      dispatch({ type: CLEAR_ERRORS });
-      useNavigate.push("/");
-    } catch (err) {
+      try {
+        setAuthorizationHeader(res.data.token);
+        dispatch(getUserData());
+        dispatch({ type: CLEAR_ERRORS });
+        useNavigate.push("/");
+      } catch (err) {
         console.log(res, err);
       }
     })
@@ -62,7 +62,7 @@ export const logoutUser = () => (dispatch) => {
 export const getUserData = () => (dispatch) => {
   dispatch({ type: LOADING_USER });
   axios
-    .get("/user")
+    .get("http://188.166.174.210/api/v1/current-user-information")
     .then((res) => {
       dispatch({
         type: SET_USER,
