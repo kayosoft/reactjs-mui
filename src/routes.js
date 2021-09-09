@@ -10,9 +10,8 @@ import DashboardApp from "./pages/DashboardApp";
 import Products from "./pages/Products";
 import Crops from "./pages/Crops";
 import User from "./pages/User";
+import Profile from "./pages/Profile";
 import NotFound from "./pages/Page404";
-
-
 
 function Router() {
   return useRoutes([
@@ -35,6 +34,7 @@ function Router() {
         { path: "app", element: <DashboardApp /> },
         { path: "crops", element: <Crops /> },
         { path: "user", element: <User /> },
+        { path: "profile", element: <Profile /> },
         { path: "products", element: <Products /> },
       ],
     },

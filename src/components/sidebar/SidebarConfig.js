@@ -34,6 +34,11 @@ const sidebarConfig = [
     path: "#",
     icon: getIcon(cropFill),
   },
+  {
+    title: "Users",
+    path: "/dashboard/user",
+    icon: getIcon(cropFill),
+  },
 ];
 
 export default sidebarConfig;
