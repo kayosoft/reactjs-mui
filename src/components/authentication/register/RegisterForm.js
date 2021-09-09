@@ -23,6 +23,7 @@ class RegisterForm extends Component {
       last_name: "",
       email: "",
       farm_name: "",
+      phone_number: "",
       password: "",
       password_confirmation: "",
       errors: {},
@@ -41,12 +42,14 @@ class RegisterForm extends Component {
     const newUserData = {
       first_name: this.state.first_name,
       last_name: this.state.last_name,
-      farm_name: this.state.farm_name,
+      
       email: this.state.email,
+      farm_name: this.state.farm_name,
+      phone_number: this.state.phone_number,
       password: this.state.password,
       password_confirmation: this.state.password_confirmation,
     };
-    this.props.signupUser(newUserData, this.props.useNavigate);
+    this.props.signupUser(newUserData, this.props.history);
   };
   handleChange = (event) => {
     this.setState({
