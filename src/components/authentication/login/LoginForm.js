@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { Link as RouterLink,} from "react-router-dom";
 
 // material
 import { Link, Stack, TextField, Button, Typography } from "@material-ui/core";
@@ -11,6 +11,8 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import { connect } from "react-redux";
 import { loginUser } from "../../../redux/actions/userActions";
 
+
+
 // ----------------------------------------------------------------------
 const styles = (theme) => ({});
 class LoginForm extends Component {
@@ -20,10 +22,12 @@ class LoginForm extends Component {
       email: "",
       password: "",
       errors: {},
-      setShowPassword: false,
+      
     };
   }
+  
   //const [showPassword, setShowPassword] = useState(false);
+  
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.UI.errors) {
@@ -37,6 +41,7 @@ class LoginForm extends Component {
       email: this.state.email,
       password: this.state.password,
     };
+    //Push history
     this.props.loginUser(userData, this.props.history);
   };
   handleChange = (event) => {
@@ -127,6 +132,7 @@ const mapStateToProps = (state) => ({
 const mapActionsToProps = {
   loginUser,
 };
+
 
 export default connect(
   mapStateToProps,

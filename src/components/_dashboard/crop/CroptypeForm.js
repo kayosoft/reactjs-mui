@@ -13,9 +13,9 @@ const CropType = () => {
         render={({ field }) => (
           <TextField
             id="first-name"
-            label="First Name"
+            label="Crop Type"
             variant="outlined"
-            placeholder="Enter Your First Name"
+            placeholder="Search Crop Type"
             fullWidth
             margin="normal"
             {...field}
@@ -29,9 +29,9 @@ const CropType = () => {
         render={({ field }) => (
           <TextField
             id="last-name"
-            label="Last Name"
+            label="Variety"
             variant="outlined"
-            placeholder="Enter Your Last Name"
+            placeholder="Enter Crop Variety"
             fullWidth
             margin="normal"
             {...field}
@@ -45,9 +45,9 @@ const CropType = () => {
         render={({ field }) => (
           <TextField
             id="nick-name"
-            label="Nick Name"
+            label="CropId"
             variant="outlined"
-            placeholder="Enter Your Nick Name"
+            placeholder="Enter CropId"
             fullWidth
             margin="normal"
             {...field}

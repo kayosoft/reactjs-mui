@@ -8,19 +8,22 @@ import {
   MARK_NOTIFICATIONS_READ,
 } from "../types";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const loginUser = (userData, history) => (dispatch) => {
+  
   dispatch({ type: LOADING_UI });
   axios
-    .post("http://188.166.174.210/api/v1/sign-in", userData)
-    .then((res) => {
+    .post("/sign-in", userData)
+    .then((response) => {
       try {
-        setAuthorizationHeader(res.data.token);
+        setAuthorizationHeader(response.data.token);
         dispatch(getUserData());
         dispatch({ type: CLEAR_ERRORS });
-        history.push("/dashboard");
+        console.log(response.data);
+        history.push('/dashboard');
       } catch (err) {
-        console.log(res, err);
+        console.log(response, err);
       }
     })
     .catch((err) => {
@@ -31,18 +34,18 @@ export const loginUser = (userData, history) => (dispatch) => {
     });
 };
 
-export const signupUser = (newUserData, useNavigate) => (dispatch) => {
+export const signupUser = (newUserData, history) => (dispatch) => {
   dispatch({ type: LOADING_UI });
   axios
-    .post("http://188.166.174.210/api/v1/sign-up", newUserData)
-    .then((res) => {
+    .post("/sign-up", newUserData)
+    .then((response) => {
       try {
-        setAuthorizationHeader(res.data.token);
+        setAuthorizationHeader(response.data.token);
         dispatch(getUserData());
         dispatch({ type: CLEAR_ERRORS });
-        useNavigate.push("/");
+        history.push("/");
       } catch (err) {
-        console.log(res, err);
+        console.log(response, err);
       }
     })
     .catch((err) => {
@@ -54,7 +57,7 @@ export const signupUser = (newUserData, useNavigate) => (dispatch) => {
 };
 
 export const logoutUser = () => (dispatch) => {
-  localStorage.removeItem("FBIdToken");
+  localStorage.removeItem("TFIdToken");
   delete axios.defaults.headers.common["Authorization"];
   dispatch({ type: SET_UNAUTHENTICATED });
 };
@@ -62,12 +65,16 @@ export const logoutUser = () => (dispatch) => {
 export const getUserData = () => (dispatch) => {
   dispatch({ type: LOADING_USER });
   axios
-    .get("http://188.166.174.210/api/v1/current-user-information")
-    .then((res) => {
+    .get("/current-user-information")
+    .then((response) => {
+      try {
       dispatch({
         type: SET_USER,
-        payload: res.data,
+        payload: response.data,
       });
+    } catch (err) {
+      console.log(response, err);
+    }
     })
     .catch((err) => console.log(err));
 };
@@ -104,7 +111,7 @@ export const markNotificationsRead = (notificationIds) => (dispatch) => {
 };
 
 const setAuthorizationHeader = (token) => {
-  const FBIdToken = `Bearer ${token}`;
-  localStorage.setItem("FBIdToken", FBIdToken);
-  axios.defaults.headers.common["Authorization"] = FBIdToken;
+  const TFIdToken = `Bearer ${token}`;
+  localStorage.setItem("TFIdToken", TFIdToken);
+  axios.defaults.headers.common["Authorization"] = TFIdToken;
 };

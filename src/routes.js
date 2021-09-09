@@ -1,9 +1,11 @@
 import { Navigate, useRoutes } from "react-router-dom";
+
 // layouts
 import DashboardLayout from "./layouts/dashboard";
 import LogoOnlyLayout from "./layouts/LogoOnlyLayout";
 
-//
+
+// Pages
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import DashboardApp from "./pages/DashboardApp";
@@ -13,22 +15,14 @@ import User from "./pages/User";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/Page404";
 
-function Router() {
+
+
+function Router(authenticated) {
   return useRoutes([
-    {
-      path: "/",
-      element: <LogoOnlyLayout />,
-      children: [
-        { path: "/", element: <Login /> },
-        { path: "register", element: <Register /> },
-        { path: "404", element: <NotFound /> },
-        { path: "/", element: <Navigate to="/dashboard" /> },
-        { path: "*", element: <Navigate to="/404" /> },
-      ],
-    },
+    
     {
       path: "/dashboard",
-      element: <DashboardLayout />,
+      element: authenticated ? <DashboardLayout /> : <Navigate to="/" />,
       children: [
         { path: "/", element: <Navigate to="/dashboard/app" replace /> },
         { path: "app", element: <DashboardApp /> },
@@ -36,6 +30,17 @@ function Router() {
         { path: "user", element: <User /> },
         { path: "profile", element: <Profile /> },
         { path: "products", element: <Products /> },
+      ],
+    },
+    {
+      path: "/",
+      element: !authenticated ? <LogoOnlyLayout /> : <Navigate to="/dashboard/app" />,
+      children: [
+        { path: "/", element: <Login /> },
+        { path: "register", element: <Register /> },
+        { path: "404", element: <NotFound /> },
+        { path: "/", element: <Navigate to="/dashboard" /> },
+        { path: "*", element: <Navigate to="/404" /> },
       ],
     },
 
