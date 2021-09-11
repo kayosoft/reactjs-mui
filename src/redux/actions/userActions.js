@@ -10,8 +10,7 @@ import {
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export const loginUser = (userData, history) => (dispatch) => {
-  
+export const loginUser = (userData, navigate) => (dispatch) => {
   dispatch({ type: LOADING_UI });
   axios
     .post("/sign-in", userData)
@@ -21,7 +20,8 @@ export const loginUser = (userData, history) => (dispatch) => {
         dispatch(getUserData());
         dispatch({ type: CLEAR_ERRORS });
         console.log(response.data);
-        history.push('/dashboard');
+        let navigate = useNavigate();
+        navigate("/dashboard");
       } catch (err) {
         console.log(response, err);
       }
@@ -34,7 +34,7 @@ export const loginUser = (userData, history) => (dispatch) => {
     });
 };
 
-export const signupUser = (newUserData, history) => (dispatch) => {
+export const signupUser = (newUserData, navigate) => (dispatch) => {
   dispatch({ type: LOADING_UI });
   axios
     .post("/sign-up", newUserData)
@@ -43,7 +43,8 @@ export const signupUser = (newUserData, history) => (dispatch) => {
         setAuthorizationHeader(response.data.token);
         dispatch(getUserData());
         dispatch({ type: CLEAR_ERRORS });
-        history.push("/");
+        let navigate = useNavigate();
+        navigate("/");
       } catch (err) {
         console.log(response, err);
       }
@@ -68,13 +69,13 @@ export const getUserData = () => (dispatch) => {
     .get("/current-user-information")
     .then((response) => {
       try {
-      dispatch({
-        type: SET_USER,
-        payload: response.data,
-      });
-    } catch (err) {
-      console.log(response, err);
-    }
+        dispatch({
+          type: SET_USER,
+          payload: response.data,
+        });
+      } catch (err) {
+        console.log(response, err);
+      }
     })
     .catch((err) => console.log(err));
 };
