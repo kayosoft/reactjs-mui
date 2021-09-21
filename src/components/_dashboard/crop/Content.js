@@ -154,7 +154,7 @@ function Content(props) {
         <Typography color="textSecondary" align="center">
           No Crop data yet
         </Typography>
-        {/* <CropsTable /> */}
+        <CropsTable />
       </div>
     </Paper>
   );
