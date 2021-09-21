@@ -3,6 +3,7 @@ import { Navigate, useRoutes } from "react-router-dom";
 // layouts
 import DashboardLayout from "./layouts/dashboard";
 import LogoOnlyLayout from "./layouts/LogoOnlyLayout";
+import FarmsetupLayout from "./layouts/farmsetup";
 
 
 // Pages
@@ -13,6 +14,8 @@ import Products from "./pages/Products";
 import Crops from "./pages/Crops";
 import User from "./pages/User";
 import Profile from "./pages/Profile";
+import Farmsetup from "./pages/Farmsetup";
+import Account from "./pages/Account";
 import NotFound from "./pages/Page404";
 
 
@@ -29,7 +32,18 @@ function Router(authenticated) {
         { path: "crops", element: <Crops /> },
         { path: "user", element: <User /> },
         { path: "profile", element: <Profile /> },
+        { path: "account", element: <Account /> },
         { path: "products", element: <Products /> },
+        { path: "farmsetup", element: <Farmsetup /> },
+      ],
+    },
+    {
+      path: "/farmsetup",
+      element: authenticated ? <FarmsetupLayout /> : <Navigate to="/" />,
+      children: [
+        { path: "/", element: <Navigate to="/farmsetup/farm" replace /> },
+        { path: "farm", element: <Farmsetup /> },
+        
       ],
     },
     {

@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import homeFill from "@iconify/icons-eva/home-fill";
 import personFill from "@iconify/icons-eva/person-fill";
 import settings2Fill from "@iconify/icons-eva/settings-2-fill";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate} from "react-router-dom";
 import PropTypes from "prop-types";
 // material
 import { alpha } from "@material-ui/core/styles";
@@ -37,7 +37,7 @@ const MENU_OPTIONS = [
   {
     label: "Profile",
     icon: personFill,
-    linkTo: "#",
+    linkTo: "/dashboard/account",
   },
   {
     label: "Settings",
@@ -48,9 +48,10 @@ const MENU_OPTIONS = [
 
 // ----------------------------------------------------------------------
 
-function AccountPopover() {
+function AccountPopover(props) {
   const anchorRef = useRef(null);
   const [open, setOpen] = useState(false);
+  let navigate = useNavigate();
 
   const handleOpen = () => {
     setOpen(true);
@@ -58,8 +59,10 @@ function AccountPopover() {
   const handleClose = () => {
     setOpen(false);
   };
-  const handleLogout = () => {
-    logoutUser();
+  function handleLogout(){
+    //logoutUser();
+    localStorage.clear();
+    navigate("/login");
   };
 
   return (

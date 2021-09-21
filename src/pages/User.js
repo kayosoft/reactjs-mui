@@ -1,3 +1,5 @@
+
+import React from 'react';
 import { filter } from "lodash";
 import { Icon } from "@iconify/react";
 import { sentenceCase } from "change-case";
@@ -20,11 +22,19 @@ import {
   TableContainer,
   TablePagination,
 } from "@material-ui/core";
+import IconButton from "@material-ui/core/IconButton";
+import { withStyles } from "@material-ui/styles";
+import Dialog from "@material-ui/core/Dialog";
+import MuiDialogTitle from "@material-ui/core/DialogTitle";
+import MuiDialogContent from "@material-ui/core/DialogContent";
+// import MuiDialogActions from "@material-ui/core/DialogActions";
+import CloseIcon from "@material-ui/icons/Close";
 // components
 import Page from "../components/Page";
 import Label from "../components/Label";
 import Scrollbar from "../components/Scrollbar";
 import SearchNotFound from "../components/SearchNotFound";
+import AdduserForm from "../components/_dashboard/user/AdduserForm";
 import {
   UserListHead,
   UserListToolbar,
@@ -45,6 +55,68 @@ const TABLE_HEAD = [
 ];
 
 // ----------------------------------------------------------------------
+
+const styles = (theme) => ({
+  paper: {
+    maxWidth: 936,
+    margin: "auto",
+    overflow: "hidden",
+    marginTop: theme.spacing(3),
+  },
+  searchBar: {
+    borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
+  },
+  searchInput: {
+    fontSize: theme.typography.fontSize,
+  },
+  block: {
+    display: "block",
+  },
+  addCrop: {
+    marginRight: theme.spacing(1),
+  },
+  contentWrapper: {
+    margin: "40px 16px",
+  },
+  root: {
+    margin: 0,
+    padding: theme.spacing(2),
+  },
+  closeButton: {
+    position: "absolute",
+    right: theme.spacing(1),
+    top: theme.spacing(1),
+    color: theme.palette.grey[500],
+  },
+});
+
+const DialogTitle = withStyles(styles)((props) => {
+  const { children, classes, onClose, ...other } = props;
+  return (
+    <MuiDialogTitle disableTypography className={classes.root} {...other}>
+      <Typography variant="h6">{children}</Typography>
+      {onClose ? (
+        <IconButton
+          aria-label="close"
+          className={classes.closeButton}
+          onClick={onClose}
+        >
+          <CloseIcon />
+        </IconButton>
+      ) : null}
+    </MuiDialogTitle>
+  );
+});
+
+const DialogContent = withStyles((theme) => ({
+  root: {
+    padding: theme.spacing(2),
+    width: theme.spacing(70),
+  },
+}))(MuiDialogContent);
+
+
+
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -78,7 +150,16 @@ function applySortFilter(array, comparator, query) {
   return stabilizedThis.map((el) => el[0]);
 }
 
-export default function User() {
+export default function User(props) {
+  const { classes } = props;
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
   const [page, setPage] = useState(0);
   const [order, setOrder] = useState("asc");
   const [selected, setSelected] = useState([]);
@@ -159,11 +240,29 @@ export default function User() {
             variant="contained"
             component={RouterLink}
             to="#"
+            
+            onClick={handleClickOpen}
             startIcon={<Icon icon={plusFill} />}
           >
             New User
           </Button>
+         
         </Stack>
+        <div>
+        <Dialog
+          onClose={handleClose}
+          aria-labelledby="customized-dialog-title"
+          open={open}
+          onBackdropClick="false"
+        >
+          <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+            Add User
+          </DialogTitle>
+          <DialogContent dividers>
+            <AdduserForm />
+          </DialogContent>
+        </Dialog>
+      </div>
 
         <Card>
           <UserListToolbar

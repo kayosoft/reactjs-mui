@@ -116,9 +116,7 @@ class ContactDetail extends Component {
             </Typography>
           )}
 
-          <Button type="submit" fullWidth variant="contained" size="large">
-            Save
-          </Button>
+          
         </Stack>
       </form>
     );

@@ -6,6 +6,12 @@ import { Stack, TextField, Typography } from "@material-ui/core";
 import withStyles from "@material-ui/styles/withStyles";
 import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import InputBase from '@material-ui/core/InputBase';
 
 // Redux - Auth
 import { connect } from "react-redux";
@@ -85,18 +91,7 @@ class PersonalInfo extends Component {
               fullWidth
             />
           </Stack>
-
-          <TextField
-            id="gender"
-            name="gender"
-            type="gender"
-            label="Gender"
-            helperText={errors.gender}
-            error={errors.gender ? true : false}
-            value={this.state.gender}
-            onChange={this.handleChange}
-            fullWidth
-          />
+        
           <TextField
             id="role"
             name="role"
@@ -108,17 +103,7 @@ class PersonalInfo extends Component {
             onChange={this.handleChange}
             fullWidth
           />
-          <TextField
-            id="nin"
-            name="nin"
-            type="text"
-            label="NIN"
-            helperText={errors.nin}
-            error={errors.nin ? true : false}
-            value={this.state.nin}
-            onChange={this.handleChange}
-            fullWidth
-          />
+          
         </Stack>
       </form>
     );

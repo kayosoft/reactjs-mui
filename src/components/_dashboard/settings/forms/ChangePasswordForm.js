@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 // material
-import { Stack, TextField, Typography } from "@material-ui/core";
+import { Stack, TextField, Typography, Box } from "@material-ui/core";
 import withStyles from "@material-ui/styles/withStyles";
 import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -105,9 +105,20 @@ class ChangePasswordForm extends Component {
             </Typography>
           )}
 
-          <Button type="submit" variant="contained" size="large">
+<Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'flex-end',
+            p: 2
+          }}
+        >
+          <Button
+            color="primary"
+            variant="contained"
+          >
             Save
           </Button>
+        </Box>
         </Stack>
       </form>
     );

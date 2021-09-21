@@ -8,13 +8,13 @@ const Finish = () => {
     <>
       <Controller
         control={control}
-        name="address1"
+        name="days_to_maturity"
         render={({ field }) => (
           <TextField
-            id="address1"
-            label="Address 1"
+            id="days-maturity"
+            label="Days to Maturity (Days)"
             variant="outlined"
-            placeholder="Enter Your Address 1"
+            
             fullWidth
             margin="normal"
             {...field}
@@ -23,13 +23,13 @@ const Finish = () => {
       />
       <Controller
         control={control}
-        name="address2"
+        name="harvest"
         render={({ field }) => (
           <TextField
-            id="address2"
-            label="Address 2"
+            id="harvest-window"
+            label="Harvest Window"
             variant="outlined"
-            placeholder="Enter Your Address 2"
+            
             fullWidth
             margin="normal"
             {...field}
@@ -38,13 +38,42 @@ const Finish = () => {
       />
       <Controller
         control={control}
-        name="country"
+        name="harvest_unit"
         render={({ field }) => (
           <TextField
-            id="country"
-            label="Country"
+            id="harvest-unit"
+            label="Harvest Unit (Kg)"
             variant="outlined"
-            placeholder="Enter Your Country Name"
+            
+            fullWidth
+            margin="normal"
+            {...field}
+          />
+        )}
+      />
+      <Controller
+        control={control}
+        name="estimated_revenue"
+        render={({ field }) => (
+          <TextField
+            id="estimated-revenue"
+            label="Estimated Revenue per Unit (Shs)"
+            variant="outlined"
+            
+            fullWidth
+            margin="normal"
+            {...field}
+          />
+        )}
+      />
+      <Controller
+        control={control}
+        name="estimated_unit"
+        render={({ field }) => (
+          <TextField
+            id="estimated-unit"
+            label="Estimated Yield per Acre"
+            variant="outlined"
             fullWidth
             margin="normal"
             {...field}

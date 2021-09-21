@@ -10,6 +10,7 @@ import { gridSpacing } from "../../../redux/constant";
 //Components
 import PersonalInfo from "./forms/PersonalInfo";
 import ContactDetail from "./forms/ContactDetail";
+import NotificationSettings from "./NotificationSettings";
 
 const PersonalDetails = () => {
   return (
@@ -29,9 +30,19 @@ const PersonalDetails = () => {
                 <ContactDetail />
               </MuiTypography>
             </Grid>
-            <Grid item></Grid>
+            <Grid item>
+              
+            </Grid>
           </Grid>
         </SubCard>
+        
+      </Grid>
+      <Grid item xs={12} sm={12}>
+        
+          <Grid container direction="column" spacing={1}>
+          <NotificationSettings />
+          </Grid>
+        
       </Grid>
     </Grid>
   );
