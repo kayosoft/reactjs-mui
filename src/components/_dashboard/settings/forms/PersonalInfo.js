@@ -1,24 +1,16 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+
 
 // material
-import { Stack, TextField, Typography } from "@mui/material";
-import withStyles from "@mui/styles/withStyles";
-import Button from "@mui/material/Button";
-import CircularProgress from "@mui/material/CircularProgress";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import NativeSelect from '@mui/material/NativeSelect';
-import InputBase from '@mui/material/InputBase';
+import { Stack, TextField } from "@mui/material";
 
 // Redux - Auth
+// eslint-disable-next-line 
 import { connect } from "react-redux";
 
 // ----------------------------------------------------------------------
 
-const styles = (theme) => ({});
+
 
 class PersonalInfo extends Component {
   constructor() {
@@ -60,7 +52,7 @@ class PersonalInfo extends Component {
     });
   };
   render() {
-    const { classes } = this.props;
+    
     const { errors } = this.state;
 
     return (

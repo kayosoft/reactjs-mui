@@ -11,7 +11,7 @@ import * as serviceWorker from './serviceWorker';
 import reportWebVitals from './reportWebVitals';
 
 // Redux
-import { Provider, useSelector } from "react-redux";
+import { Provider } from "react-redux";
 import store from "./redux/store";
 import ErrorBoundary from "./Error";
 

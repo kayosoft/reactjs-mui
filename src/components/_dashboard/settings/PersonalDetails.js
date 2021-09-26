@@ -1,6 +1,6 @@
 import React from "react";
 // material-ui
-import { Grid, Link } from "@mui/material";
+import { Grid } from "@mui/material";
 import MuiTypography from "@mui/material/Typography";
 
 // project imports

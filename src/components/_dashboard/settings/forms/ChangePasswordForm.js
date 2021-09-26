@@ -1,17 +1,16 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+
 
 // material
-import { Stack, TextField, Typography, Box } from "@mui/material";
-import withStyles from "@mui/styles/withStyles";
-import Button from "@mui/material/Button";
-import CircularProgress from "@mui/material/CircularProgress";
+import { Stack, TextField, Typography, Box, Button } from "@mui/material";
+
 
 // Redux - Auth
+// eslint-disable-next-line 
 import { connect } from "react-redux";
 
 // ----------------------------------------------------------------------
-
+// eslint-disable-next-line 
 const styles = (theme) => ({});
 
 class ChangePasswordForm extends Component {
@@ -54,6 +53,7 @@ class ChangePasswordForm extends Component {
     });
   };
   render() {
+    // eslint-disable-next-line 
     const { classes } = this.props;
     const { errors } = this.state;
 

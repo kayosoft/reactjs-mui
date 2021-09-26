@@ -1,7 +1,7 @@
 import React from "react";
 // material-ui
-import { Grid, Link } from "@mui/material";
-import MuiTypography from "@mui/material/Typography";
+import { Grid } from "@mui/material";
+
 
 // project imports
 import SubCard from "../../ui-components/cards/SubCard";

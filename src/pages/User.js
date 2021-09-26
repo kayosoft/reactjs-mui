@@ -151,6 +151,7 @@ function applySortFilter(array, comparator, query) {
 }
 
 export default function User(props) {
+  // eslint-disable-next-line 
   const { classes } = props;
   const [open, setOpen] = React.useState(false);
 

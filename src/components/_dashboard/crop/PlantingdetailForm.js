@@ -1,18 +1,14 @@
-import React, {useState} from "react";
+import React from "react";
 
 import { Controller, useFormContext } from "react-hook-form";
 import { TextField } from "@mui/material";
-import Stack from '@mui/material/Stack';
-
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 
 
 const PlantingDetail = () => {
   const { control } = useFormContext();
+  // eslint-disable-next-line 
   const [value, setValue] = React.useState(new Date());
-
+ // eslint-disable-next-line 
   const handleChange = (newValue) => {
     setValue(newValue);
   };
@@ -33,27 +29,7 @@ const PlantingDetail = () => {
           />
         )}
       />
-      {/* <Controller
-        control={control}
-        name="date"
-        render={({ field }) => (
-       <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <Stack spacing={4}>
-        <DesktopDatePicker
-          label="Date Planting"
-          inputFormat="MM/dd/yyyy"
-          value={value}
-          onChange={handleChange}
-          renderInput={(params) => <TextField {...params} />}
-          {...field}
-        />
-        
-      </Stack>
-    </LocalizationProvider>
-
-)}
-/> */}
-
+     
       <Controller
         control={control}
         name="days_emerge"

@@ -5,7 +5,6 @@ import { makeStyles, useTheme } from '@mui/styles';
 import { Card, CardContent, Grid, Typography } from '@mui/material';
 
 // third-party
-import ApexCharts from 'apexcharts';
 import Chart from 'react-apexcharts';
 
 // project imports
@@ -34,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 const BajajAreaChartCard = () => {
     const classes = useStyles();
     const theme = useTheme();
-
+    // eslint-disable-next-line 
     const orangeDark = theme.palette.secondary[800];
 
     

@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
 
 // material
-import { Box, Grid, Container, Typography } from "@mui/material";
+import { Grid, } from "@mui/material";
 // components
 import Page from "../components/Page";
 import {
-  Crops,
-  AppCurrentVisits,
-  AppWebsiteVisits,
+  
   EarningCard,
   PopularCard,
   TotalOrderLineChartCard,
   TotalIncomeDarkCard,
   TotalIncomeLightCard,
-  TotalGrowthBarChart,
+
 } from "../components/_dashboard/app";
 import { gridSpacing } from '../redux/constant';
 
