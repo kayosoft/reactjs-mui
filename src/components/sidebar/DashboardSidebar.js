@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 import { useEffect } from "react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 // material
-import { styled } from "@material-ui/core/styles";
-import { Box, Button, Drawer, Stack } from "@material-ui/core";
-import { alpha } from "@material-ui/core/styles";
+import { styled, alpha } from "@mui/material/styles";
+import { Box, Button, Drawer, Stack } from "@mui/material";
+
 // components
 import Logo from "../Logo";
 import Scrollbar from "../Scrollbar";

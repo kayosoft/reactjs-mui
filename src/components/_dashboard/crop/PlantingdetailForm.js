@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 
 import { Controller, useFormContext } from "react-hook-form";
-import { TextField } from "@material-ui/core";
+import { TextField } from "@mui/material";
 import Stack from '@mui/material/Stack';
 
-import AdapterDateFns from '@material-ui/lab/AdapterDateFns';
-import LocalizationProvider from '@material-ui/lab/LocalizationProvider';
-import DesktopDatePicker from '@material-ui/lab/DesktopDatePicker';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 
 
 const PlantingDetail = () => {

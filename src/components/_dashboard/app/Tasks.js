@@ -1,6 +1,6 @@
 // material
-import { styled } from "@material-ui/core/styles";
-import { Card, CardHeader } from "@material-ui/core";
+import { styled } from "@mui/material/styles";
+import { Card, CardHeader } from "@mui/material";
 
 // ----------------------------------------------------------------------
 

@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { Link as RouterLink } from "react-router-dom";
 
 // material
-import { Link, Stack, TextField, Button, Typography } from "@material-ui/core";
-import withStyles from "@material-ui/styles/withStyles";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import { Link, Stack, TextField, Button, Typography } from "@mui/material";
+import withStyles from "@mui/styles/withStyles";
+import CircularProgress from "@mui/material/CircularProgress";
 
 // Redux - Auth
 import { connect } from "react-redux";

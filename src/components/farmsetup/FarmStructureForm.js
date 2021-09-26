@@ -10,7 +10,7 @@ import { TextField, Box,
   Divider,
   FormControlLabel,
   Grid,
-  Typography } from "@material-ui/core";
+  Typography } from "@mui/material";
 
 const FarmStructure = () => {
   const { control } = useFormContext();

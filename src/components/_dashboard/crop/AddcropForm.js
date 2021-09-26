@@ -6,8 +6,8 @@ import {
   Stepper,
   Step,
   StepLabel,
-} from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+} from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import {
   useForm,
  

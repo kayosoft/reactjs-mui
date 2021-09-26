@@ -4,9 +4,10 @@ import Router from "./routes";
 
 // theme
 import ThemeConfig from "./theme";
+import GlobalStyles from './theme/globalStyles';
 import "./App.css";
 import {useSelector} from "react-redux";
-import jwtDecode from "jwt-decode";
+// import jwtDecode from "jwt-decode";
 
 // Auth , Redux stuff
 import store from "./redux/store";
@@ -15,9 +16,11 @@ import { logoutUser, getUserData } from "./redux/actions/userActions";
 
 
 // Components
-import AuthRoute from "./utils/AuthRoute";
-import ProtectedRoute from "./utils/ProtectedRoute";
+// import AuthRoute from "./utils/AuthRoute";
+// import ProtectedRoute from "./utils/ProtectedRoute";
 import ScrollToTop from "./components/ScrollToTop";
+import { BaseOptionChartStyle } from './components/charts/BaseOptionChart';
+
 
 import axios from "axios";
 
@@ -44,13 +47,16 @@ export default function App() {
 
   const routing = Router(authenticated);
   return (
+
     <ThemeConfig>
-      
-        <ScrollToTop />
-        <>
+      <ScrollToTop />
+      <GlobalStyles />
+      <BaseOptionChartStyle />
+      <>
         {routing}
         </>
-     
     </ThemeConfig>
+    
+    
   );
 }

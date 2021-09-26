@@ -1,7 +1,7 @@
 import React from 'react';
 
 // material-ui
-import Skeleton from '@material-ui/core/Skeleton';
+import Skeleton from '@mui/material/Skeleton';
 
 //-----------------------|| SKELETON IMAGE CARD ||-----------------------//
 

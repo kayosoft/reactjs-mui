@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import AppBar from "@material-ui/core/AppBar";
+import AppBar from "@mui/material/AppBar";
 
-import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
-import HelpIcon from "@material-ui/icons/Help";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import HelpIcon from "@mui/icons-material/Help";
 
-import IconButton from "@material-ui/core/IconButton";
+import IconButton from "@mui/material/IconButton";
 
-import Toolbar from "@material-ui/core/Toolbar";
-import Tooltip from "@material-ui/core/Tooltip";
-import Typography from "@material-ui/core/Typography";
-import { withStyles } from "@material-ui/styles";
+import Toolbar from "@mui/material/Toolbar";
+import Tooltip from "@mui/material/Tooltip";
+import Typography from "@mui/material/Typography";
+import { withStyles } from "@mui/styles";
 
 const lightColor = "rgba(255, 255, 255, 0.7)";
 

@@ -13,7 +13,7 @@ import reportWebVitals from './reportWebVitals';
 // Redux
 import { Provider, useSelector } from "react-redux";
 import store from "./redux/store";
-
+import ErrorBoundary from "./Error";
 
 // ----------------------------------------------------------------------
 
@@ -21,8 +21,9 @@ ReactDOM.render(
   <HelmetProvider>
    <Provider store={store}>
     <BrowserRouter>
-
+<ErrorBoundary >
       <App />
+      </ErrorBoundary>
     </BrowserRouter>
     </Provider>
     

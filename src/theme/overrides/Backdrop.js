@@ -1,4 +1,5 @@
-import { alpha } from '@material-ui/core/styles';
+
+import { alpha } from '@mui/material/styles';
 
 // ----------------------------------------------------------------------
 

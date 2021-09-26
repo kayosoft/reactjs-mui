@@ -21,14 +21,14 @@ import {
   Typography,
   TableContainer,
   TablePagination,
-} from "@material-ui/core";
-import IconButton from "@material-ui/core/IconButton";
-import { withStyles } from "@material-ui/styles";
-import Dialog from "@material-ui/core/Dialog";
-import MuiDialogTitle from "@material-ui/core/DialogTitle";
-import MuiDialogContent from "@material-ui/core/DialogContent";
-// import MuiDialogActions from "@material-ui/core/DialogActions";
-import CloseIcon from "@material-ui/icons/Close";
+} from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import { withStyles } from "@mui/styles";
+import Dialog from "@mui/material/Dialog";
+import MuiDialogTitle from "@mui/material/DialogTitle";
+import MuiDialogContent from "@mui/material/DialogContent";
+// import MuiDialogActions from "@mui/material/DialogActions";
+import CloseIcon from "@mui/icons-material/Close";
 // components
 import Page from "../components/Page";
 import Label from "../components/Label";

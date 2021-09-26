@@ -7,28 +7,21 @@ import { Link as RouterLink } from "react-router-dom";
 // material
 import {
   Card,
-  Table,
+ 
   Stack,
-  Avatar,
+  
   Button,
-  Checkbox,
-  TableRow,
-  TableBody,
-  TableCell,
+ 
   Container,
   Typography,
-  TableContainer,
-  TablePagination,
-} from "@material-ui/core";
+ 
+} from "@mui/material";
 // components
 import Page from "../components/Page";
 
 import Scrollbar from "../components/Scrollbar";
 import { SettingTabs } from "../components/_dashboard/settings";
-//
-import USERLIST from "../_mocks_/user";
 
-// ----------------------------------------------------------------------
 
 // ----------------------------------------------------------------------
 

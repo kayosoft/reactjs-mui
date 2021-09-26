@@ -1,5 +1,5 @@
 // material
-import { Container } from "@material-ui/core";
+import { Container } from "@mui/material";
 // components
 import Page from "../components/Page";
 import Scrollbar from "../components/Scrollbar";

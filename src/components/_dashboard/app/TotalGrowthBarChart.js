@@ -8,7 +8,7 @@ import {
   TextField,
   Typography,
   useTheme,
-} from "@material-ui/core";
+} from "@mui/material";
 
 // third-party
 import ApexCharts from "apexcharts";

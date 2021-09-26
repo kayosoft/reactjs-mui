@@ -1,4 +1,4 @@
-import { alpha } from '@material-ui/core/styles';
+import { alpha } from '@mui/material/styles';
 
 // ----------------------------------------------------------------------
 
@@ -29,11 +29,11 @@ const GREY = {
 };
 
 const PRIMARY = {
-  lighter: '#1ca7e6',
+  lighter: '#C8FACD',
   light: '#5BE584',
-  main: '#169bd7',
-  dark: '#04628c',
-  darker: '#0a4863',
+  main: '#00AB55',
+  dark: '#007B55',
+  darker: '#005249',
   contrastText: '#fff'
 };
 const SECONDARY = {
@@ -85,6 +85,14 @@ const GRADIENTS = {
   error: createGradient(ERROR.light, ERROR.main)
 };
 
+const CHART_COLORS = {
+  violet: ['#826AF9', '#9E86FF', '#D0AEFF', '#F7D2FF'],
+  blue: ['#2D99FF', '#83CFFF', '#A5F3FF', '#CCFAFF'],
+  green: ['#2CD9C5', '#60F1C8', '#A4F7CC', '#C0F2DC'],
+  yellow: ['#FFE700', '#FFEF5A', '#FFF7AE', '#FFF3D6'],
+  red: ['#FF6C40', '#FF8F6D', '#FFBD98', '#FFF2D4']
+};
+
 const palette = {
   common: { black: '#000', white: '#fff' },
   primary: { ...PRIMARY },
@@ -95,9 +103,10 @@ const palette = {
   error: { ...ERROR },
   grey: GREY,
   gradients: GRADIENTS,
+  chart: CHART_COLORS,
   divider: GREY[500_24],
   text: { primary: GREY[800], secondary: GREY[600], disabled: GREY[500] },
-  background: { paper: '#fff', default: '#fff', neutral: '#DCDCDC' },
+  background: { paper: '#fff', default: '#fff', neutral: GREY[200] },
   action: {
     active: GREY[600],
     hover: GREY[500_8],

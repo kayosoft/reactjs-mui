@@ -1,6 +1,6 @@
 // material
-import { styled } from "@material-ui/core/styles";
-import { Card, Typography } from "@material-ui/core";
+import { styled } from "@mui/material/styles";
+import { Card, Typography } from "@mui/material";
 // utils
 import { fShortenNumber } from "../../../utils/formatNumber";
 

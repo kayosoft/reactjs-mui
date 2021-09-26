@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {makeStyles} from "@material-ui/styles";
+import {makeStyles} from "@mui/styles";
 
 export function UseForm(initialFValues, validateOnChange = false, validate) {
 
@@ -35,7 +35,7 @@ export function UseForm(initialFValues, validateOnChange = false, validate) {
 }
 
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme )=> ({
     root: {
         '& .MuiFormControl-root': {
             width: '80%',

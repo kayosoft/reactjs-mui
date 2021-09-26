@@ -1,6 +1,6 @@
 import React from "react";
 // material-ui
-import { Grid, Link } from "@material-ui/core";
+import { Grid } from "@mui/material";
 
 // project imports
 import SubCard from "../../ui-components/cards/SubCard";

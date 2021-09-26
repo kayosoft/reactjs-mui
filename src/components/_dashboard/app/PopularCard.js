@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 // material-ui
-import { makeStyles } from "@material-ui/styles";
+import { makeStyles } from "@mui/styles";
 import {
   Avatar,
   Button,
@@ -13,7 +13,7 @@ import {
   Menu,
   MenuItem,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 
 // project imports
 import BajajAreaChartCard from "./BajajAreaChartCard";

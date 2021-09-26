@@ -1,8 +1,9 @@
 import { merge } from 'lodash';
 import ReactApexChart from 'react-apexcharts';
-// material
-import { useTheme, styled } from '@material-ui/core/styles';
-import { Card, CardHeader } from '@material-ui/core';
+// materia
+import { useTheme } from '@mui/styles';
+import { styled } from '@mui/material/styles';
+import { Card, CardHeader } from '@mui/material';
 //
 import { BaseOptionChart } from '../../charts';
 

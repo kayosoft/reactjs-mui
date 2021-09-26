@@ -58,7 +58,7 @@ function Router(authenticated) {
       ],
     },
 
-    { path: "*", element: <Navigate to="/404" replace /> },
+    
   ]);
 }
 

@@ -1,9 +1,8 @@
 import React from 'react';
 
 // Material UI
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
+import {CssBaseline, Typography, Container} from '@mui/material';
+
 
 
 function Header() {
