@@ -34,6 +34,7 @@ function Router(authenticated) {
         { path: "profile", element: <Profile /> },
         { path: "account", element: <Account /> },
         { path: "products", element: <Products /> },
+        { path: "/", element: <Navigate to="/" /> },
         { path: "farmsetup", element: <Farmsetup /> },
       ],
     },

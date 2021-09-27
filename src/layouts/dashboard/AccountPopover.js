@@ -55,7 +55,7 @@ function AccountPopover(props) {
   function handleLogout(){
     //logoutUser();
     localStorage.clear();
-    navigate("/login");
+    navigate("/dashboard");
   };
 
   return (

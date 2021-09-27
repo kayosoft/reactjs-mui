@@ -44,7 +44,7 @@ export const signupUser = (newUserData, navigate) => (dispatch) => {
         dispatch(getUserData());
         dispatch({ type: CLEAR_ERRORS });
         let navigate = useNavigate();
-        navigate("/");
+        navigate("/auth");
       } catch (err) {
         console.log(response, err);
       }
