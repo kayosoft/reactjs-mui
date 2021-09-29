@@ -22,10 +22,10 @@ import SkeletonPopularCard from "../../ui-components/cards/Skeleton/PopularCard"
 import { gridSpacing } from "../../../redux/constant";
 
 // assets
-import ChevronRightOutlinedIcon from "@material-ui/icons/ChevronRightOutlined";
-import MoreHorizOutlinedIcon from "@material-ui/icons/MoreHorizOutlined";
-import KeyboardArrowUpOutlinedIcon from "@material-ui/icons/KeyboardArrowUpOutlined";
-import KeyboardArrowDownOutlinedIcon from "@material-ui/icons/KeyboardArrowDownOutlined";
+import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
+import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
+import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
+import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 
 // style constant
 const useStyles = makeStyles((theme) => ({

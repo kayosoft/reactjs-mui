@@ -17,7 +17,7 @@ import MainCard from "../../ui-components/cards/MainCard";
 import TotalIncomeCard from "../../ui-components/cards/Skeleton/TotalIncomeCard";
 
 // assets
-import StorefrontTwoToneIcon from "@material-ui/icons/StorefrontTwoTone";
+import StorefrontTwoToneIcon from "@mui/icons-material/StorefrontTwoTone";
 
 // style constant
 const useStyles = makeStyles((theme) => ({

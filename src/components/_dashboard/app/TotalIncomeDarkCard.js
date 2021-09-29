@@ -17,7 +17,7 @@ import MainCard from "../../ui-components/cards/MainCard";
 import TotalIncomeCard from "../../ui-components/cards/Skeleton/TotalIncomeCard";
 
 // assets
-import TableChartOutlinedIcon from "@material-ui/icons/TableChartOutlined";
+import TableChartOutlinedIcon from "@mui/icons-material/TableChartOutlined";
 
 // style constant
 const useStyles = makeStyles((theme) => ({

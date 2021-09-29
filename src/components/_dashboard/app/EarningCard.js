@@ -11,12 +11,12 @@ import SkeletonEarningCard from "../../ui-components/cards/Skeleton/EarningCard"
 
 // assets
 import EarningIcon from "../../../assets/images/icons/earning.svg";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
-import GetAppTwoToneIcon from "@material-ui/icons/GetAppOutlined";
-import FileCopyTwoToneIcon from "@material-ui/icons/FileCopyOutlined";
-import PictureAsPdfTwoToneIcon from "@material-ui/icons/PictureAsPdfOutlined";
-import ArchiveTwoToneIcon from "@material-ui/icons/ArchiveOutlined";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import GetAppTwoToneIcon from "@mui/icons-material/GetAppOutlined";
+import FileCopyTwoToneIcon from "@mui/icons-material/FileCopyOutlined";
+import PictureAsPdfTwoToneIcon from "@mui/icons-material/PictureAsPdfOutlined";
+import ArchiveTwoToneIcon from "@mui/icons-material/ArchiveOutlined";
 
 // style constant
 const useStyles = makeStyles((theme) => ({
