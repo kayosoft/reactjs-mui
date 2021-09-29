@@ -97,7 +97,7 @@ export default function Register() {
           <MHidden width="smUp">
             <Typography variant="subtitle2" sx={{ mt: 3, textAlign: "center" }}>
               Already have an account?&nbsp;
-              <Link to="/login" component={RouterLink}>
+              <Link to="/" component={RouterLink}>
                 Sign in
               </Link>
             </Typography>
