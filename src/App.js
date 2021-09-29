@@ -24,7 +24,7 @@ import { BaseOptionChartStyle } from './components/charts/BaseOptionChart';
 
 import axios from "axios";
 
-axios.defaults.baseURL = "http://188.166.174.210/api/v1";
+axios.defaults.baseURL = "https://188.166.174.210/api/v1";
 
 const token = localStorage.getItem("TFIdToken");
 if (token) {
